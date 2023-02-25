@@ -65,7 +65,7 @@ public class GetDigimonByIdEndpoint : Endpoint<GetSimpleDigimonByIdRequestDto, D
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Error at GetSimpleDigimonByIdEndpoint". {E}\", e");
+            _logger.LogError(e, "Error at GetSimpleDigimonByIdEndpoint");
             throw;
         }
     }
