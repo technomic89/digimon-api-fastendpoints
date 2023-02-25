@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 namespace Digimon.Application.Common.Behaviours;
 
 public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IRequest<TResponse>
+    where TRequest : notnull
 {
     private readonly ILogger<TRequest> _logger;
 

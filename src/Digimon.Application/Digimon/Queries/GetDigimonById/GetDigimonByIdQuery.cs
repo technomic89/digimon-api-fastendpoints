@@ -18,7 +18,8 @@ public class GetDigimonByIdQueryHandler : IRequestHandler<GetDigimonByIdQuery, D
     /// </summary>
     /// <param name="logger"><see cref="ILogger{TCategoryName}"/></param>
     /// <param name="digimonDbContext"><see cref="IDigimonDbContext"/></param>
-    public GetDigimonByIdQueryHandler(ILogger<GetDigimonByIdQueryHandler> logger, IDigimonDbContext digimonDbContext)
+    public GetDigimonByIdQueryHandler(
+        ILogger<GetDigimonByIdQueryHandler> logger, IDigimonDbContext digimonDbContext)
     {
         _logger = logger;
         _digimonDbContext = digimonDbContext;
@@ -33,6 +34,6 @@ public class GetDigimonByIdQueryHandler : IRequestHandler<GetDigimonByIdQuery, D
         if (digimon is not null) return digimon;
         
         _logger.LogError("Error at {@This}. {Query}", this, query);
-        throw new NotFoundException($"Could't found a Entry with the id = {query.Id}");
+        throw new NotFoundException($"Could not found a Entry with the id = {query.Id}");
     }
 }

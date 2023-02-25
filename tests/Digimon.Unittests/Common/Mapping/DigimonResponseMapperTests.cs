@@ -5,7 +5,6 @@ using Xunit;
 using Digimon.Api.Common.Mapping;
 using Digimon.Api.Constracts.Responses;
 
-
 namespace Digimon.Unittests.Common.Mapping;
 
 public class DigimonResponseMapperTests
@@ -15,10 +14,10 @@ public class DigimonResponseMapperTests
     {
         var entity = new Domain.Entities.Digimon();
 
-        var r = entity.FromEntity();
+        var result = entity.FromEntity();
 
-        r.Should().NotBeNull();
-        r.Should().BeOfType<DigimonResponseDto>();
+        result.Should().NotBeNull();
+        result.Should().BeOfType<DigimonResponseDto>();
     }
     
     [Fact]
@@ -28,10 +27,9 @@ public class DigimonResponseMapperTests
         var entity = new Domain.Entities.Digimon();
         list.Add(entity);
 
-        var r = list.FromListEntity();
-
-        var digimonResponseDtos = r.ToList();
-        digimonResponseDtos.Should().NotBeNull();
-        digimonResponseDtos.Should().BeOfType<List<DigimonResponseDto>>();
+        var result = list.FromListEntity().ToList();
+        
+        result.Should().NotBeNull();
+        result.Should().BeOfType<List<DigimonResponseDto>>();
     }
 }

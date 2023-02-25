@@ -18,7 +18,8 @@ public class GetAllDigimonQueryHandler : IRequestHandler<GetAllDigimonQuery, IEn
     /// </summary>
     /// <param name="logger"><see cref="ILogger{TCategoryName}"/></param>
     /// <param name="digimonDbContext"><see cref="IDigimonDbContext"/></param>
-    public GetAllDigimonQueryHandler(ILogger<GetAllDigimonQueryHandler> logger, IDigimonDbContext digimonDbContext)
+    public GetAllDigimonQueryHandler(
+        ILogger<GetAllDigimonQueryHandler> logger, IDigimonDbContext digimonDbContext)
     {
         _logger = logger;
         _digimonDbContext = digimonDbContext;
@@ -40,6 +41,6 @@ public class GetAllDigimonQueryHandler : IRequestHandler<GetAllDigimonQuery, IEn
         if (digimon.Count > 0) return digimon;
         
         _logger.LogError("Error at {@This}. {Query}", this, query);
-        throw new NotFoundException($"Could't found entries");
+        throw new NotFoundException($"Could not found entries");
     }
 }

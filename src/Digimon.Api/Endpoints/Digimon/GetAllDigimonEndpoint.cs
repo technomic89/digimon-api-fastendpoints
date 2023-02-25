@@ -1,8 +1,6 @@
-﻿using Digimon.Api.Constracts.Requests;
-using Digimon.Api.Constracts.Responses;
+﻿using Digimon.Api.Constracts.Responses;
 using Digimon.Api.Common.Mapping;
 using Digimon.Application.Digimon.Queries.GetAllDigimon;
-using Digimon.Application.Digimon.Queries.GetDigimonById;
 using MediatR;
 
 namespace Digimon.Api.Endpoints.Digimon;
@@ -64,7 +62,7 @@ public class GetAllDigimonEndpoint : EndpointWithoutRequest<IEnumerable<DigimonR
         }
         catch (Exception e)
         {
-            _logger.LogError("Error at GetAllDigimonEndpoint. {E}", e);
+            _logger.LogError(e, "Error at GetAllDigimonEndpoint");
             throw;
         }
     }
